@@ -1,0 +1,74 @@
+{
+  "name": "magicextension",
+  "displayName": "MagicExtension",
+  "description": "VS Code extension which helps utilize openai apis to fetch snippets, text right in the editor",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "author": {
+    "name": "Sumeet Pardeshi",
+    "email": "sumeet.pardeshi.online@gmail.com"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:magicextension.helloWorld"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "magicextension.helloWorld",
+        "title": "Magic Snippets"
+      },
+      {
+        "command": "magicextension.reverseWord",
+        "title": "Reverse Word"
+      },
+      {
+        "command": "magicextension.generateComponent",
+        "title": "Generate Component"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "magicextension.generateComponent",
+        "key": "Cmd+G"
+      }
+    ],
+    "configuration": {
+      "title": "Magic Extension",
+      "properties": {
+        "openaiApiKey": {
+          "type": ["string"],
+          "default": "",
+          "description": "Put your openapi Key here to use the features"
+        }
+      }
+    }
+  }
+  ,
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.0.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.74.0",
+    "@vscode/test-electron": "^2.2.0",
+    "eslint": "^8.28.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.1.0",
+    "typescript": "^4.9.3"
+  },
+  "dependencies": {
+    "axios": "^1.2.4",
+    "dotenv": "^16.0.3",
+    "openai": "^3.1.0"
+  }
+}
